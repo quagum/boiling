@@ -87,12 +87,12 @@ entityDef weapon_machinegun
 	"joint_world_flash"			"muzzle_flash"
 
 	"inv_weapon"				"weapon_machinegun"
-	"inv_start_ammo_machinegun"		"40"
+	"inv_start_ammo_machinegun"	"300" //40 --> 300
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_machinegun.tga"
 	"inv_name"					"#str_107406"
 
-	"fireRate"					".1"
+	"fireRate"					".05"
 	"spread"					"2"
 
 	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
@@ -100,8 +100,8 @@ entityDef weapon_machinegun
 	"def_althitscan"			"hitscan_zoomed_bullet"
 	
 	"ammoType"					"ammo_machinegun"
-	"ammoRequired"				"0"
-	"clipSize"					"0" //40 --> 0
+	"ammoRequired"				"1"
+	"clipSize"					"30" //40 --> 30
 	"lowAmmo"					"10"
 	"gui"						"guis/weapons/machinegun_ammo.gui"
 	"gui2"						"guis/weapons/machinegun_inview_scope.gui"
@@ -231,7 +231,7 @@ entityDef moveable_item_machinegun
 	"density"					"0.05"
 	"friction"					"0.2"
 	"bouncyness"				"0"
-	"itemclipmodel" 				"models/weapons/machinegun/w_mg_lo_clip.lwo"
+	"itemclipmodel" 			"models/weapons/machinegun/w_mg_lo_clip.lwo"
 }
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -260,7 +260,7 @@ entityDef weaponmod_machinegun_ammo
 	"spawnclass"				"idItem"
 	"size"						"32 32 32"
 	"inv_weaponmod"				"wpmod_machinegun_ammo"
-	"inv_ammo_machinegun"		"120"
+	"inv_ammo_machinegun"		"200"
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_machinegun.tga"
 	"inv_name"					"#str_107435"
