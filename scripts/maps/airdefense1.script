@@ -186,63 +186,6 @@ void returnAndersonToWork()
 }
 
 //------------------------------------------------------------------------------------
-void webbSummonsPlayer()
-{
-	$npc_redshirt_1.lookAt( $player1 );
-	
-	// switch anim_idle...now use, anim_first_idle as our idle
-	$npc_redshirt_1.setPassivePrefix("action");
-	$npc_redshirt_1.setAnimRate(1.3);
-	aiScriptedAnim( $npc_redshirt_1, "ad_door_marine", 8, 1 );
-	sys.wait(3.5);
-	aiSpeak( $npc_redshirt_1, "lipsync_vo_1_1_1_43_1" );
-	//$npc_redshirt_1.lookAt( $player1 );
-		
-	while (! aiScriptedDone( $npc_redshirt_1 ))
-	{
-		sys.waitFrame();
-	}
-	$npc_redshirt_1.setAnimRate(1);
-}
-
-//------------------------------------------------------------------------------------
-void webbJoinsPlayer()
-{
-	$npc_redshirt_1.lookAt( $null_entity );
-	$npc_redshirt_1.setLeader( $player1 );
-	$npc_redshirt_1.becomeAggressive();
-	
-	//redshirts are occupied with combat
-	$npc_redshirt_1.setTalkState( TALK_BUSY );
-	$npc_redshirt_2.setTalkState( TALK_BUSY );
-}
-
-//------------------------------------------------------------------------------------
-void webbTakeCover()
-{
-	$npc_redshirt_1.setLeader( $null_entity );
-}
-
-//------------------------------------------------------------------------------------
-void webbPlaysItSafe()
-{
-	sys.wait(2);
-	
-	//enemies cleared, redshirts can talk
-	$npc_redshirt_1.setTalkState( TALK_OK );
-	$npc_redshirt_2.setTalkState( TALK_OK );
-
-	if ( $npc_redshirt_1.getHealth() > 0 )
-	{
-		aiSpeak( $npc_redshirt_1, "lipsync_vo_1_1_1_44_1" );
-	}
-	else if ( $npc_redshirt_2.getHealth() > 0 )
-	{
-		aiSpeak( $npc_redshirt_2, "lipsync_vo_1_1_1_45_1" );
-	}
-}
-
-//------------------------------------------------------------------------------------
 // drag the hapless marine away
 //------------------------------------------------------------------------------------
 void dragMarine()	
@@ -268,21 +211,8 @@ void dragMarine()
 	$marine_grunt_drag.remove();
 	
 	// disarm the marine
-//	sys.println( "Arm collapsed");
-//	$env_ragdoll_marine_fullgear_1.collapseJoints( "*r_elbo", "r_up_arm");
-//	$env_ragdoll_marine_fullgear_1.collapseJoints( "*r_up_arm", "r_clavicle");
-//	sys.waitFrame();
-//	sys.trigger( $env_ragdoll_marine_fullgear_1);
-//	sys.wait(2);	
 }
 
-// TODO:  previously called from closeDragDoor()
-// sys.wait(1);
-// thread playAmbientWithVO(5, 3);
-
-//------------------------------------------------------------------------------------
-// unlock the door just before the drag grunt
-//------------------------------------------------------------------------------------
 void unlockPreDragDoor()
 {
 	$preGruntDoor_1.lock(0);
@@ -1896,22 +1826,20 @@ void enableLadderGui()
 	$func_static_53002.setGuiParm("noninteractive", "0");
 }
 
-//------------------------------------------------------------
 
-float dmsp_skill = 0;
-float dmsp_nextComboTime = -1;
-float dmsp_combo = 1;
-float dmsp_score = 0;
+//-------------------------MY STUFF-----------------------------------
+float wave = 0;
+float kills = 0; 
 
 //Set target_null for deathmatch spawnpoint --> func_spawners only accepts target_null 
-float createSpawns()
+float createSpawns(float waveNumber)
 {
 	entity spawnx, newNull;
 	string name;
 	name = ("info_player_deathmatch_1");
 	spawnx = sys.getEntity(name);
 	if (spawnx) {
-		name = "SpawnPoint_1";
+		name = "SpawnPoint_"+waveNumber;
 		sys.setSpawnArg( "name", name );
 		sys.setSpawnArg( "origin", spawnx.getWorldOrigin() );
 		newNull = sys.spawn( "target_null" );
@@ -1920,11 +1848,11 @@ float createSpawns()
 }
 
 // Set spawnargs to select spawn nulls 
-void setSpawns( float j )
+void setSpawns( float waveNumber )
 {
 	entity spawnx;
 	string name;
-	name = ("SpawnPoint_1");
+	name = ("SpawnPoint_"+waveNumber);
 	spawnx = sys.getEntity(name);
 	if (spawnx) {
 		sys.setSpawnArg("target_1", name );
@@ -1932,22 +1860,24 @@ void setSpawns( float j )
 	sys.println("Setting spawns...");
 }
 
-
 // All arguments must be set on the spawner when it spawns, hence spawnArgs rather than setKeys
-void createSpawner()
+void createSpawner(float waveNumber)
 {
-	float j = createSpawns();	// make nulls for spawn points
+	float j = createSpawns(waveNumber);	// make nulls for spawn points
 
-	// the more times listed the higher odds of spawning
-	sys.setSpawnArg("def_spawn", "monster_strogg_marine");
-	sys.setSpawnArg("def_spawn_1", "monster_iron_maiden");
-	sys.setSpawnArg("def_spawn_2", "monster_iron_maiden");
-	sys.setSpawnArg("def_spawn_3", "monster_iron_maiden");
-	sys.setSpawnArg("def_spawn_4", "monster_iron_maiden");
-	
+	if (waveNumber == 1){
+		sys.setSpawnArg("def_spawn", "monster_strogg_marine");
+	}
+	else if (waveNumber == 2){
+		sys.setSpawnArg("def_spawn_1", "monster_network_guardian");
+		sys.setSpawnArg("def_spawn_2", "monster_network_guardian");
+		sys.setSpawnArg("def_spawn_3", "monster_network_guardian");
+		sys.setSpawnArg("def_spawn_4", "monster_network_guardian");
+	}
+
 	sys.waitFrame();
 
-	sys.setSpawnArg("max_active", 500);	//max # of spawns
+	sys.setSpawnArg("max_active", 5);	//max # of spawns
 	sys.setSpawnArg("delay", 1);		//spawn delay
 	sys.setSpawnArg("auto_target", "1");
 	sys.setSpawnArg("face_enemy", "1");
@@ -1955,14 +1885,38 @@ void createSpawner()
 	sys.setSpawnArg("remove", "0");		 
 	// spawn_* keys are set on the spawned monster:
 	sys.setSpawnArg("spawn_neverdormant", "2");
-	
+	sys.setSpawnArg("spawn_script_death", "killMonster");	
+
 	sys.waitFrame();
 	
-	setSpawns( j ); // set created nulls as spawn points
+	setSpawns( waveNumber ); // set created nulls as spawn points
 	
-	entity dudeSpawner = sys.spawn( "func_spawner" );
-	sys.trigger(dudeSpawner);
+	entity Spawner = sys.spawn( "func_spawner" );
+	sys.trigger(Spawner);
 	sys.println("SPAWNING!");
+}
+
+void killMonster( entity victim )
+{
+	string vicType = victim.getKey( "classname" );	// what kind of monster is it?
+	vector vicOrg, vicSize, vicDrop, vicPip;
+
+	float score = 100;	// score on general = 4x score on easy
+	
+	vicOrg = victim.getWorldOrigin();		// where was it killed?
+	vicSize = victim.getSize();			// how big was it?  for deciding how high to toss items and print score
+	
+	vicPip = vicOrg;
+	vicPip_z = vicPip_z + vicSize_z * 0.75;		// print score pip about head high
+
+	float val = sys.random(1);
+	kills = kills + 1;
+	sys.println(kills);
+	if (kills == 5){
+		sys.println("ROUND 2!");
+		createSpawner(2);
+		kills = kills + 1;
+	}
 }
 
 //------------------------------------------------------------
@@ -1979,7 +1933,7 @@ void main()
 	
 	$player1.setHealth( 100 );
 
-	createSpawner();
+	createSpawner(1);
 
 	sys.wait(2);
 	sys.println("Three ... ");
@@ -1989,6 +1943,7 @@ void main()
 	sys.println("One ... ");
 	sys.wait(1);
 	sys.println("The ith wave of the invasion has begun!");
+
 }
 
 }	//end namespace : map_airdefense1
