@@ -1897,6 +1897,75 @@ void enableLadderGui()
 }
 
 //------------------------------------------------------------
+
+float dmsp_skill = 0;
+float dmsp_nextComboTime = -1;
+float dmsp_combo = 1;
+float dmsp_score = 0;
+
+//Set target_null for deathmatch spawnpoint --> func_spawners only accepts target_null 
+float createSpawns()
+{
+	entity spawnx, newNull;
+	string name;
+	name = ("info_player_deathmatch_1");
+	spawnx = sys.getEntity(name);
+	if (spawnx) {
+		name = "SpawnPoint_1";
+		sys.setSpawnArg( "name", name );
+		sys.setSpawnArg( "origin", spawnx.getWorldOrigin() );
+		newNull = sys.spawn( "target_null" );
+	}
+	return 1;
+}
+
+// Set spawnargs to select spawn nulls 
+void setSpawns( float j )
+{
+	entity spawnx;
+	string name;
+	name = ("SpawnPoint_1");
+	spawnx = sys.getEntity(name);
+	if (spawnx) {
+		sys.setSpawnArg("target_1", name );
+	}
+	sys.println("Setting spawns...");
+}
+
+
+// All arguments must be set on the spawner when it spawns, hence spawnArgs rather than setKeys
+void createSpawner()
+{
+	float j = createSpawns();	// make nulls for spawn points
+
+	// the more times listed the higher odds of spawning
+	sys.setSpawnArg("def_spawn", "monster_strogg_marine");
+	sys.setSpawnArg("def_spawn_1", "monster_iron_maiden");
+	sys.setSpawnArg("def_spawn_2", "monster_iron_maiden");
+	sys.setSpawnArg("def_spawn_3", "monster_iron_maiden");
+	sys.setSpawnArg("def_spawn_4", "monster_iron_maiden");
+	
+	sys.waitFrame();
+
+	sys.setSpawnArg("max_active", 500);	//max # of spawns
+	sys.setSpawnArg("delay", 1);		//spawn delay
+	sys.setSpawnArg("auto_target", "1");
+	sys.setSpawnArg("face_enemy", "1");
+	sys.setSpawnArg("skipVisible", "0");
+	sys.setSpawnArg("remove", "0");		 
+	// spawn_* keys are set on the spawned monster:
+	sys.setSpawnArg("spawn_neverdormant", "2");
+	
+	sys.waitFrame();
+	
+	setSpawns( j ); // set created nulls as spawn points
+	
+	entity dudeSpawner = sys.spawn( "func_spawner" );
+	sys.trigger(dudeSpawner);
+	sys.println("SPAWNING!");
+}
+
+//------------------------------------------------------------
 void main()	
 {
 	// filters:
@@ -1909,6 +1978,8 @@ void main()
 	//$normalDoor_frame_4.setShaderParm( 7 , 0 );
 	
 	$player1.setHealth( 100 );
+
+	createSpawner();
 
 	sys.wait(2);
 	sys.println("Three ... ");
