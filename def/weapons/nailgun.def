@@ -113,7 +113,7 @@ entityDef weapon_nailgun
 	"drumSpeed"					".8"
 	
 	"inv_weapon"				"weapon_nailgun"
-	"inv_start_ammo_nailgun"			"50"
+	"inv_start_ammo_nailgun"			"400" //50 --> 400
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_nailgun"
 	"inv_name"					"#str_107407"
@@ -127,7 +127,7 @@ entityDef weapon_nailgun
 	"def_altprojectile"			"projectile_nail_seek"
 	"ammoType"					"ammo_nailgun"
 	"ammoRequired"				"1"
-	"clipSize"					"50"
+	"clipSize"					"100" //50 --> 100
 	"lowAmmo"					"1"
 
 	"mtr_flashShader"			"lights/muzzleflash"
