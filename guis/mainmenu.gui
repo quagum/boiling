@@ -4,6 +4,8 @@ windowDef Desktop
 	menugui	1
 	rect	0,0,640,480
 	backcolor	0,0,0,1
+	::	mousey
+	-	186
 	definevec4	"corner"	0.564,0.603,0.286,0.4
 	definevec4	"corner_0"	0.564,0.603,0.286,0
 	definevec4	"white"	1,1,1,1
@@ -20,8 +22,8 @@ windowDef Desktop
 	definevec4	"orange"	0.890,0.537,0,1
 	definevec4	"yellow_8"	1,0.745,0.137,0.8
 	definevec4	"grey1_4"	0.435,0.435,0.435,0.4
-	definefloat	"tooltip_x_offset"	gui::mousex-255
-	definefloat	"tooltip_y_offset"	gui::mousey-186
+	definefloat	"tooltip_x_offset"	gui
+	definefloat	"tooltip_y_offset"	gui
 	defineicon	"fve"	"gfx/guis/mainmenu/icon_favorite.tga"
 	defineicon	"pse"	"gfx/guis/mainmenu/icon_locked.tga"
 	defineicon	"dse"	"gfx/guis/mainmenu/icon_dedserver.tga"
@@ -647,55 +649,15 @@ windowDef Desktop
 	{
 		rect	0,0,640,480
 		visible	1
+		background	"/guis/giratina"
+		matcolor	1,1,1,1
 		windowDef bg_temp
 		{
 			rect	0,0,640,480
 			visible	1
 			background	"/guis/giratina"
 			matcolor	1,1,1,1
-		}
-		windowDef bg_temp2
-		{
-			rect	0,0,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_temp2"
-			matcolor	1,1,1,0
-		}
-		windowDef bg_temp3
-		{
-			rect	0,0,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_temp3"
-			matcolor	1,1,1,0
-		}
-		windowDef bg_temp4
-		{
-			rect	0,0,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_temp4"
-			matcolor	1,1,1,0
-		}
-		windowDef static
-		{
-			visible	1
-			rect	0,0,640,480
-			background	"gfx/guis/common/static1"
-			matcolor	0.894,0.917,0.815,0.024
-			matscalex	-1
-		}
-		windowDef grad
-		{
-			rect	0,0,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad"
-			matcolor	0,0,0,1
-		}
-		windowDef screen
-		{
-			rect	0,24,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/screen"
-			matcolor	0.7,0.7,0.7,1
+			notime	1
 		}
 		windowDef screen2
 		{
@@ -703,59 +665,6 @@ windowDef Desktop
 			visible	1
 			background	"gfx/guis/mainmenu/screen"
 			matcolor	0,0,0,1
-		}
-		windowDef grad2
-		{
-			rect	-11,0,683,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad2"
-			matcolor	0,0,0,0
-		}
-		windowDef grad3
-		{
-			rect	0,0,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad2"
-			matcolor	0,0,0,0
-			matscalex	-1
-		}
-		windowDef grad4
-		{
-			rect	0,0,640,480
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad3"
-			matcolor	0,0,0,0
-			matscalex	-1
-		}
-		windowDef grad5
-		{
-			rect	0,0,640,750
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad3"
-			matcolor	0,0,0,0
-			matscalex	-1
-		}
-		windowDef grad6
-		{
-			rect	0,0,640,548
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad3"
-			matcolor	0,0,0,0
-			matscalex	-1
-		}
-		windowDef grad7
-		{
-			rect	0,0,640,574
-			visible	1
-			background	"gfx/guis/mainmenu/bg_darkgrad3"
-			matcolor	0,0,0,0
-			matscalex	-1
-		}
-		windowDef grad8
-		{
-			rect	0,0,640,480
-			visible	1
-			backcolor	0,0,0,0
 		}
 		windowDef grid1
 		{
@@ -771,50 +680,22 @@ windowDef Desktop
 			background	"gfx/guis/mainmenu/bg_grid"
 			matcolor	1,1,1,0.04
 		}
-		windowDef topbar
-		{
-			rect	-400,0,1045,129
-			visible	1
-			background	"gfx/guis/mainmenu/topbar"
-			matcolor	1,1,1,1
-		}
-		windowDef btmbar
-		{
-			rect	-399,351,1045,129
-			visible	1
-			background	"gfx/guis/mainmenu/btmbar"
-			matcolor	1,1,1,1
-		}
-		windowDef d_topbar
-		{
-			rect	-77,-63,1045,129
-			visible	0
-			background	"gfx/guis/mainmenu/topbar"
-			matcolor	1,1,1,1
-		}
-		windowDef d_btmbar
-		{
-			rect	-26,386,1045,129
-			visible	0
-			background	"gfx/guis/mainmenu/btmbar"
-			matcolor	1,1,1,1
-		}
 		windowDef p_main
 		{
 			rect	0,0,640,480
 			visible	1
 			windowDef q4logo
 			{
-				rect	380,125,260,260
+				rect	381,89,260,260
 				visible	1
-				background	"gfx/guis/mainmenu/q4logo"
+				background	"guis/logo"
 				matcolor	1,1,1,1
 			}
 			windowDef q4text
 			{
-				rect	6,119,376,92
+				rect	7,92,376,92
 				visible	1
-				background	"gfx/guis/mainmenu/q4text"
+				background	"guis/text"
 				matcolor	1,1,1,1
 			}
 			windowDef main_b1
@@ -15871,12 +15752,6 @@ windowDef Desktop
 			}
 		}
 	}
-	windowDef fade
-	{
-		rect	0,0,640,480
-		visible	1
-		backcolor	0,0,0,1
-	}
 	windowDef p_video
 	{
 		rect	0,0,640,480
@@ -16410,52 +16285,6 @@ windowDef Desktop
 			set "mp_friends_clan::forecolor" "$desktop::white_8" ; 
 		}
 
-		windowDef anim_in
-		{
-			rect	0,0,1,1
-			visible	1
-			notime	1
-
-			onTime 0 {
-				
-				// compare cvar 'sys_lang', store as gui variable 'curr_lang' and compare
-				// against languages. returns index value 0 for English, 1 Spanish, onward.
-				
-				set "cmd" "CVarStrcmp sys_lang curr_lang English Spanish French Italian" ;
-				
-				
-				if ("desktop::dest" == 4 || "desktop::dest" == 21 || "desktop::dest" == 22 || "desktop::curr" == 16 || "desktop::curr" == 14 ) {
-					namedevent "p_btns::hideMain" ;	
-				}
-				
-				transition "fade::backcolor_w" "1" "0" "250" ;
-			}
-
-			onTime +50 {
-				if ("gui::curr_lang" == 1){
-					set "main_t_b6::rect" "96,403,91,17" ;
-					set "main_b6_corner::rect" "89,408,9,9" ;
-					set "main_b_updates::rect" "95,403,92,20" ;
-				} else if ("gui::curr_lang" == 2){
-					set "main_t_b8::rect" "279,403,66,17" ;
-					set "main_b8_corner::rect" "272,408,9,9" ;
-					set "main_b_credits::rect" "190,403,76,20" ;
-					set "main_b_exit::rect" "275,403,66,20" ;
-				}
-			}
-
-			onTime +200 {
-				if ("desktop::motd" == 1) {
-					set "cmd" "getMOTD" ;
-				}
-				
-				if ("desktop::dest" == 2 || "desktop::dest" == 4 || "desktop::dest" == 21 || "desktop::dest" == 22) {
-					set "desktop::active" "1" ;
-					resettime "anim_mainOut" "0" ;
-				} 
-			}
-
-		}
 		windowDef anim_out
 		{
 			rect	0,0,1,1
@@ -18961,7 +18790,7 @@ windowDef Desktop
 	}
 	windowDef p_btns
 	{
-		rect	0,0,640,480
+		rect	1,1,640,480
 		visible	1
 
 		onNamedEvent showMain {
