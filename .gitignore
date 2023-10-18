@@ -1,5 +1,5 @@
 
 solution/.vs/q4sdk/v16/Browse.VC.db
-*.opendb
-solution/.vs/q4sdk/v16/Solution.VC.db-shm
-solution/.vs/q4sdk/v16/Browse.VC.db-shm
+solution/.vs/q4sdk/v16/Browse.VC.opendb
+*.save
+savegames
