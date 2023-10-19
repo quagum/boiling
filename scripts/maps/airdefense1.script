@@ -1869,22 +1869,35 @@ void createSpawner(float waveNumber)
 		sys.setSpawnArg("def_spawn", "monster_strogg_marine");
 	}
 	else if (waveNumber == 2){
-		sys.setSpawnArg("def_spawn_1", "monster_network_guardian");
-		sys.setSpawnArg("def_spawn_2", "monster_network_guardian");
-		sys.setSpawnArg("def_spawn_3", "monster_network_guardian");
+		sys.setSpawnArg("def_spawn_1", "monster_strogg_marine_mgun");
+	}
+	else if (waveNumber == 3){
+		sys.setSpawnArg("def_spawn_2", "monster_strogg_marine_mgun");
+		sys.setSpawnArg("def_spawn_3", "monster_strogg_marine_mgun");
+		sys.setSpawnArg("def_spawn_4", "monster_strogg_marine_sgun");
+	}
+	else if (waveNumber == 4){
+		sys.setSpawnArg("def_spawn_1", "monster_grunt");
+		sys.setSpawnArg("def_spawn_2", "monster_grunt");
+		sys.setSpawnArg("def_spawn_3", "monster_berserker");
+		sys.setSpawnArg("def_spawn_4", "monster_berserker");
+	}
+	else if (waveNumber == 5){
+		sys.setSpawnArg("def_spawn_1", "monster_gunner");
+		sys.setSpawnArg("def_spawn_2", "monster_gunner");
+		sys.setSpawnArg("def_spawn_3", "monster_gunner");
 		sys.setSpawnArg("def_spawn_4", "monster_network_guardian");
 	}
 
 	sys.waitFrame();
 
-	sys.setSpawnArg("max_active", 5);	//max # of spawns
-	sys.setSpawnArg("delay", 1);		//spawn delay
+	sys.setSpawnArg("max_active", 10);	//max # of spawns
+	sys.setSpawnArg("delay", 0.1);		//spawn delay
 	sys.setSpawnArg("auto_target", "1");
 	sys.setSpawnArg("face_enemy", "1");
 	sys.setSpawnArg("skipVisible", "0");
 	sys.setSpawnArg("remove", "0");		 
 	// spawn_* keys are set on the spawned monster:
-	sys.setSpawnArg("spawn_neverdormant", "2");
 	sys.setSpawnArg("spawn_script_death", "killMonster");	
 
 	sys.waitFrame();
@@ -1893,29 +1906,34 @@ void createSpawner(float waveNumber)
 	
 	entity Spawner = sys.spawn( "func_spawner" );
 	sys.trigger(Spawner);
-	sys.println("SPAWNING!");
 }
 
 void killMonster( entity victim )
 {
-	string vicType = victim.getKey( "classname" );	// what kind of monster is it?
-	vector vicOrg, vicSize, vicDrop, vicPip;
-
-	float score = 100;	// score on general = 4x score on easy
-	
-	vicOrg = victim.getWorldOrigin();		// where was it killed?
-	vicSize = victim.getSize();			// how big was it?  for deciding how high to toss items and print score
-	
-	vicPip = vicOrg;
-	vicPip_z = vicPip_z + vicSize_z * 0.75;		// print score pip about head high
-
 	float val = sys.random(1);
 	kills = kills + 1;
 	sys.println(kills);
-	if (kills == 5){
-		sys.println("ROUND 2!");
-		createSpawner(2);
-		kills = kills + 1;
+	if (kills%10 == 0){
+		if (kills == 20){
+			sys.println("ROUND 2!");
+			createSpawner(2);
+		}
+		else if (kills == 30){
+			sys.println("ROUND 3!");
+			createSpawner(3);
+		}
+		else if (kills == 40){
+			sys.println("ROUND 4!");
+			createSpawner(4);
+		}
+		else if (kills == 50){
+			sys.println("ROUND 5!");
+			createSpawner(5);
+		}
+		else if (kills == 60){
+			sys.println("INFINITE!");
+			createSpawner(6);
+		}
 	}
 }
 
