@@ -1965,31 +1965,38 @@ void killMonster(entity victim){
 
 	string enemyType = victim.getKey( "classname" );
 	if ( enemyType == "monster_strogg_marine" ){
-		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_machinegun_mp", 1, 0 );
-		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_machinegun", 1, 0);
-		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_machinegun_ammo", 1, 0);
+		if ( val > 0.7 ) throwLoots( victimOrigin, "weaponmod_blaster_penetration", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weaponmod_blaster_penetration", 1, 0);
+		else if ( val > 0.4 ) throwLoots( victimOrigin, "weaponmod_blaster_RAH", 1, 0);
 	} 
 	else if ( enemyType == "monster_strogg_marine_mgun" ){
-		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_shotgun_mp", 1, 0 );
-		else if ( val > 0.5 ) throwLoots( victimOrigin, "weaponmod_shotgun_ammo", 1, 0);
-		else if ( val > 0.3 ) throwLoots( victimOrigin, "item_armor_shard", 1, 0);
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_machinegun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_machinegun", 1, 0);
+		else if ( val > 0.4 ) throwLoots( victimOrigin, "weaponmod_machinegun_firerate", 1, 0);
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_machinegun_penetration", 1, 0);
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "weaponmod_machinegun_ammo", 1, 0);
+		else if ( val > 0.15 ) throwLoots( victimOrigin, "weaponmod_machinegun_RAH", 1, 0);
 	} 
 	else if ( enemyType == "monster_strogg_marine_sgun" )  {
 		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_nailgun_mp", 1, 0 );
-		else if ( val > 0.5 ) throwLoots( victimOrigin, "item_health_shard_mp", 1, 0 );
-		else if ( val > 0.3 ) throwLoots( victimOrigin, "item_armor_shard", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_nailgun", 1, 0 );
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_nailgun_firerate", 1, 0 );
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "weaponmod_nailgun_RAH", 1, 0 );
 	} 
 	else if ( enemyType == "monster_grunt" ) {
 		if ( val > 0.5 ) throwLoots( victimOrigin, "ammo_railgun_mp", 1, 0 );
+		else if ( val > 0.1 ) throwLoots( victimOrigin, "weapon_railgun", 1, 0 );
 	} 
 	else if ( enemyType == "monster_berserker" ) {
-		if ( val > 0.5 ) throwLoots( victimOrigin, "ammo_rocketlauncher_mp", 1, 0 );
-		else if ( val > 0.2 ) throwLoots( victimOrigin, "ammo_rocketlauncher_mp", 1, 0 );
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_shotgun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weaponmod_shotgun_ammo", 1, 0);
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weapon_shotgun", 1, 0);
 	} 
 	else if ( enemyType == "monster_gunner" ) {
-		if ( val > 0.6 ) throwLoots( victimOrigin, "ammo_nailgun_mp", 1, 0 );
-		else if ( val > 0.2 ) throwLoots( victimOrigin, "weapon_nailgun", 1, 0 );
-		else throwLoots( victimOrigin, "item_health_small_mp", 1, 0 );
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_nailgun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_nailgun", 1, 0 );
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_nailgun_firerate", 1, 0 );
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "weaponmod_nailgun_RAH", 1, 0 );
 	} 
 	else if ( enemyType == "monster_network_guardian" ) {
 		if ( val > 0.5 ) throwLoots( victimOrigin, "ammo_rocketlauncher_mp", 2, 0 );
