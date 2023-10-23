@@ -232,7 +232,6 @@ model weapon_blaster_world
 entityDef wpmod_blaster_firerate
 {
 	"weapon"					"weapon_blaster"
-
 	"fireRate"					"0.06"
 }
 
@@ -241,21 +240,18 @@ entityDef weaponmod_blaster_firerate
 	"editor_color"				"0 0 0"
 	"editor_mins"				"0 0 0"
 	"editor_maxs"				"0 0 0"
-
 	"spawnclass"				"idItem"
 	"size"						"32 32 32"
 	"inv_weaponmod"				"wpmod_blaster_firerate"
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_blaster.tga"
 	"inv_name"					"#str_107440"
-
 	"model"						"models/items/ammo/ammo_box.lwo"
 }
 
 entityDef wpmod_blaster_penetration
 {
 	"weapon"					"weapon_blaster"
-
 	"def_hitscan"				"hitscan_blaster_penetrate"
 }
 
@@ -265,39 +261,31 @@ entityDef weaponmod_blaster_penetration
 	"editor_color"				"0 0 0"
 	"editor_mins"				"0 0 0"
 	"editor_maxs"				"0 0 0"
-
 	"spawnclass"				"idItem"
 	"size"						"32 32 32"
 	"inv_weaponmod"				"wpmod_blaster_penetration"
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_blaster.tga"
 	"inv_name"					"#str_107436"
-
-	"model"						"models/items/ammo/ammo_box.lwo"
+	"model"						"models/items/armor/shard.lwo"
 }
 
 
 entityDef wpmod_blaster_RAH
 {
 	"weapon"					"weapon_blaster"
-
 	"def_hitscan"				"hitscan_blaster_RAH"
 }
 
 entityDef weaponmod_blaster_RAH
 {
-	"editor_color"				"0 0 0"
-	"editor_mins"				"0 0 0"
-	"editor_maxs"				"0 0 0"
-
 	"spawnclass"				"idItem"
 	"size"						"32 32 32"
 	"inv_weaponmod"				"wpmod_blaster_RAH"
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_blaster.tga"
 	"inv_name"					"RAH MODE"
-
-	"model"						"models/items/ammo/ammo_box.lwo"
+	"model"						"models/items/armor/shard.lwo"
 }
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -362,24 +350,18 @@ entityDef hitscan_blaster_RAH
 	"mins"						"-2 -2 -2"
 	"maxs"						"2 2 2"
 	"cone"						"2"
-	"noshadows"					"1"
-																
-	"def_damage"				"damage_blaster_RAH"
-								
+	"noshadows"					"1"													
+	"def_damage"				"damage_blaster_RAH"			
 	"velocity"					"1500 0 0"
 	"fuse"						"4"
-	"push"						"7500"
-								
+	"push"						"7500"				
 	"detonate_on_fuse"			"1"
 	"detonate_on_death"			"0"
 	"detonate_on_world"			"1"
-	"detonate_on_actor"			"1"
-								
-	"impact_gib"				"1"
-								
+	"detonate_on_actor"			"1"						
+	"impact_gib"				"1"					
 	"decal_bounce"				""
-	"decal_size"				"8"
-								
+	"decal_size"				"8"						
 	"fx_fly"					"effects/weapons/blaster/fly.fx"
 	"fx_impact"					"effects/weapons/blaster/impact_default.fx"
 	"fx_impact_water"			"effects/ambient/splash_smll.fx"
