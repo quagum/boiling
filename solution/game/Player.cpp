@@ -4309,6 +4309,14 @@ float idPlayer::PowerUpModifier( int type ) {
 			case PMOD_FIRERATE:
 				mod *= 0.7f;
 				break;
+
+			case PMOD_MULTISHOTS:
+				mod *= 4.0f;
+				break;
+
+			case PMOD_SPREAD:
+				mod *= 6.0f;
+				break;
 		}
 	}
 
@@ -4319,17 +4327,24 @@ float idPlayer::PowerUpModifier( int type ) {
 				mod *= 0.7f;
 				break;
 			}
+			case PMOD_VAMPIRE: {
+				mod *= 1.0f;
+			}
 		}
 	}
 
 	if( PowerUpActive( POWERUP_DOUBLER ) ) {
 		switch( type ) {
 			case PMOD_PROJECTILE_DAMAGE: {
-				mod *= 2.0f;
+				mod *= 100.0f;
 				break;
 			}
 			case PMOD_MELEE_DAMAGE: {
-				mod *= 2.0f;
+				mod *= 100.0f;
+				break;
+			}
+			case PMOD_PROJECTILE_DEATHPUSH: {
+				mod *= 100.0f;
 				break;
 			}
 		}
@@ -4365,36 +4380,6 @@ float idPlayer::PowerUpModifier( int type ) {
 			}
 		}
 	}
-
-	if (PowerUpActive(POWERUP_VAMPIRE)) {
-		switch (type) {
-			case PMOD_VAMPIRE: {
-				mod = 2.0;
-				break;
-			}
-		}
-	}
-	if (PowerUpActive(POWERUP_MULTISHOT)) {
-		switch (type) {
-			case PMOD_MULTISHOTS: {
-				mod = 5.0f;
-				break;
-			}
-			case PMOD_SPREAD: {
-				mod = 10.0f;
-				break;
-			}
-		}
-	}
-	if (PowerUpActive(POWERUP_RAH)) {
-		switch (type) {
-			case PMOD_RAH: {
-				mod = 2.0;
-				break;
-			}
-		}
-	}
-	
 
 	return mod;
 }

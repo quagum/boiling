@@ -446,7 +446,43 @@ stateResult_t rvWeaponRocketLauncher::State_Fire ( const stateParms_t& parms ) {
 	switch ( parms.stage ) {
 		case STAGE_INIT:
 			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));		
-			Attack ( false, 1, spread, 0, 1.0f );
+			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier(PMOD_FIRERATE));
+			if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f && owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f && owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+				Attack(false, 20, spread * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+				if (owner->health < 100) {
+					owner->health += 10;
+				}
+			}
+			else if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f && owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+				Attack(false, 20, 1, 0, 1.0f);
+				if (owner->health < 100) {
+					owner->health += 10;
+				}
+			}
+			else if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f && owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f) {
+				Attack(false, 20, spread * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+			}
+			else if (owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f && owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+				Attack(false, 1 * owner->PowerUpModifier(PMOD_MULTISHOTS), spread * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+				if (owner->health < 100) {
+					owner->health = 100;
+				}
+			}
+			else if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f) {
+				Attack(false, 20, 1, 0, 1.0f);
+			}
+			else if (owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f) {
+				Attack(false, 1 * owner->PowerUpModifier(PMOD_MULTISHOTS), 1 * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+			}
+			else if (owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+				Attack(false, 1, 1, 0, 1.0f);
+				if (owner->health < 100) {
+					owner->health += 10;
+				}
+			}
+			else {
+				Attack(false, 1, 1, 0, 1.0f);
+			}
 			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );	
 			return SRESULT_STAGE ( STAGE_WAIT );
 	
