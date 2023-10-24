@@ -1076,62 +1076,62 @@ C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\phys
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(2077,2): warning C5205: delete of an abstract class 'rvAASTacticalSensor' that has a non-virtual destructor results in undefined behavior
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\ai\AAS_tactical.h(23): message : see declaration of 'rvAASTacticalSensor'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(2724,12): warning C4458: declaration of 'skin' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(863,22): message : see declaration of 'idPlayer::skin'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(872,22): message : see declaration of 'idPlayer::skin'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(3458,26): warning C4458: declaration of 'hud' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(343,22): message : see declaration of 'idPlayer::hud'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(352,22): message : see declaration of 'idPlayer::hud'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(3459,28): warning C4458: declaration of 'mphud' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(344,21): message : see declaration of 'idPlayer::mphud'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(353,21): message : see declaration of 'idPlayer::mphud'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(3460,29): warning C4458: declaration of 'cursor' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(924,21): message : see declaration of 'idPlayer::cursor'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(933,21): message : see declaration of 'idPlayer::cursor'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(3622,29): warning C4458: declaration of 'cursor' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(924,21): message : see declaration of 'idPlayer::cursor'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(933,21): message : see declaration of 'idPlayer::cursor'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(3933,62): warning C4458: declaration of 'weaponDef' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(340,27): message : see declaration of 'idPlayer::weaponDef'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(349,27): message : see declaration of 'idPlayer::weaponDef'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4251,17): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4629,64): warning C4458: declaration of 'team' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4691,64): warning C4458: declaration of 'team' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Actor.h(120,11): message : see declaration of 'idActor::team'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4824,25): warning C4458: declaration of 'hud' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(343,22): message : see declaration of 'idPlayer::hud'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4937,3): warning C4456: declaration of 'i' hides previous local declaration
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4820,6): message : see declaration of 'i'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(5080,55): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(5293,57): warning C4458: declaration of 'name' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4886,25): warning C4458: declaration of 'hud' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(352,22): message : see declaration of 'idPlayer::hud'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4999,3): warning C4456: declaration of 'i' hides previous local declaration
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(4882,6): message : see declaration of 'i'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(5142,55): warning C4458: declaration of 'weapon' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(5355,57): warning C4458: declaration of 'name' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Entity.h(124,12): message : see declaration of 'idEntity::name'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(5310,56): warning C4458: declaration of 'name' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(5372,56): warning C4458: declaration of 'name' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Entity.h(124,12): message : see declaration of 'idEntity::name'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(6688,17): warning C4456: declaration of 'end' hides previous local declaration
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(6634,12): message : see declaration of 'end'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(9672,31): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(9964,82): warning C4458: declaration of 'damageScale' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(6750,17): warning C4456: declaration of 'end' hides previous local declaration
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(6696,12): message : see declaration of 'end'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(9734,31): warning C4458: declaration of 'weapon' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10026,82): warning C4458: declaration of 'damageScale' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Actor.h(277,18): message : see declaration of 'idActor::damageScale'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(9964,82): warning C4458: declaration of 'health' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10026,82): warning C4458: declaration of 'health' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Entity.h(137,11): message : see declaration of 'idEntity::health'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10064,76): warning C4458: declaration of 'damageScale' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10126,76): warning C4458: declaration of 'damageScale' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Actor.h(277,18): message : see declaration of 'idActor::damageScale'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10207,24): warning C4457: declaration of 'attacker' hides function parameter
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10063,55): message : see declaration of 'attacker'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10473,31): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10606,27): warning C4458: declaration of 'viewAxis' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10269,24): warning C4457: declaration of 'attacker' hides function parameter
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10125,55): message : see declaration of 'attacker'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10535,31): warning C4458: declaration of 'weapon' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(10668,27): warning C4458: declaration of 'viewAxis' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Actor.h(123,13): message : see declaration of 'idActor::viewAxis'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11118,18): warning C4458: declaration of 'viewAxis' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11180,18): warning C4458: declaration of 'viewAxis' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Actor.h(123,13): message : see declaration of 'idActor::viewAxis'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11236,29): warning C4458: declaration of 'cursor' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(924,21): message : see declaration of 'idPlayer::cursor'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11603,31): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11656,31): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(12409,28): warning C4458: declaration of 'arena' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(964,11): message : see declaration of 'idPlayer::arena'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(12700,17): warning C4458: declaration of 'team' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11298,29): warning C4458: declaration of 'cursor' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(933,21): message : see declaration of 'idPlayer::cursor'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11665,31): warning C4458: declaration of 'weapon' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(11718,31): warning C4458: declaration of 'weapon' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(12471,28): warning C4458: declaration of 'arena' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(973,11): message : see declaration of 'idPlayer::arena'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(12762,17): warning C4458: declaration of 'team' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Actor.h(120,11): message : see declaration of 'idActor::team'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(12997,14): warning C4458: declaration of 'weapon' hides class member
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(337,17): message : see declaration of 'idPlayer::weapon'
-C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(13020,21): warning C4458: declaration of 'types' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(13059,14): warning C4458: declaration of 'weapon' hides class member
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.h(346,17): message : see declaration of 'idPlayer::weapon'
+C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\Player.cpp(13082,21): warning C4458: declaration of 'types' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\game\gamesys\Class.h(409,30): message : see declaration of 'idClass::types'
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\idlib\math\Interpolate.h(68,135): warning C4458: declaration of 'startTime' hides class member
 C:\Program Files (x86)\Steam\steamapps\common\Quake 4\boiling\solution\idlib\math\Interpolate.h(42,11): message : see declaration of 'idInterpolate<float>::startTime'

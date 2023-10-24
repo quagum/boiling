@@ -112,30 +112,7 @@ bool rvWeaponBlaster::UpdateAttack ( void ) {
 		}
 	}		
 
-	// If they have the charge mod and they have overcome the initial charge 
-	// delay then transition to the charge state.
-	if ( fireHeldTime != 0 ) {
-		if ( gameLocal.time - fireHeldTime > chargeDelay ) {
-			SetState ( "Charge", 4 );
-			return true;
-		}
 
-		// If the fire button was let go but was pressed at one point then 
-		// release the shot.
-		if ( !wsfl.attack ) {
-			idPlayer * player = gameLocal.GetLocalPlayer();
-			if( player )	{
-			
-				if( player->GuiActive())	{
-					//make sure the player isn't looking at a gui first
-					SetState ( "Lower", 0 );
-				} else {
-					SetState ( "Fire", 0 );
-				}
-			}
-			return true;
-		}
-	}
 	
 	return false;
 }
@@ -429,9 +406,9 @@ stateResult_t rvWeaponBlaster::State_Fire ( const stateParms_t& parms ) {
 			if ( gameLocal.time - fireHeldTime > chargeTime ) {	
 				Attack ( true, 10, spread, 0, 1.0f );
 				PlayEffect ( "fx_chargedflash", barrelJointView, false );
-				PlayAnim( ANIMCHANNEL_ALL, "chargedfire", parms.blendFrames );
+				PlayAnim( ANIMCHANNEL_ALL, "fire", parms.blendFrames );
 			} else {
-				Attack ( false, 1, spread, 0, 1.0f );
+				Attack(true, 10, spread, 0, 1.0f);
 				PlayEffect ( "flashlight", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "fire", parms.blendFrames );
 			}
