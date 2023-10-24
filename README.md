@@ -1,18 +1,19 @@
 # boiling
 COD Survival Mod for Quake
 This isn't very game play balanced bro...
+No need to build and replace game.ddl --> already done here --> just drag and drop into game folder 
 
 A shortcut to auto launch INTO your mod X
 
 An in-game HELP screen explaining how to use the features of your mod X 
 - replaced objective screen with help screen 
 - hit tab to show
-- 
+  
 Updated in game UI to showcase one or more of your features X
 - gun icons
 - gun names
 - wave number and enemies killed in cmd
-- 
+  
 Modified Landing Page for the Mod X
 - main menu background change
 - loading screen background change
