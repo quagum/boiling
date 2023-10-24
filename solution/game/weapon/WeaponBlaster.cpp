@@ -427,12 +427,48 @@ stateResult_t rvWeaponBlaster::State_Fire ( const stateParms_t& parms ) {
 
 	
 			if ( gameLocal.time - fireHeldTime > chargeTime ) {	
-				Attack ( true, 10, spread, 0, 1.0f );
+				Attack ( true, 1, spread, 0, 1.0f );
 				PlayEffect ( "fx_chargedflash", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "chargedfire", parms.blendFrames );
 			} else {
-				Attack ( false, 1, spread, 0, 1.0f );
-				PlayEffect ( "flashlight", barrelJointView, false );
+				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier(PMOD_FIRERATE));
+				if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f && owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f && owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+					Attack(false, 20, spread * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+					if (owner->health < 100) {
+						owner->health += 10;
+					}
+				}
+				else if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f && owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+					Attack(false, 20, 1, 0, 1.0f);
+					if (owner->health < 100) {
+						owner->health += 10;
+					}
+				}
+				else if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f && owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f) {
+					Attack(false, 20, spread * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+				}
+				else if (owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f && owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+					Attack(false, 1 * owner->PowerUpModifier(PMOD_MULTISHOTS), spread * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+					if (owner->health < 100) {
+						owner->health = 100;
+					}
+				}
+				else if (owner->PowerUpModifier(PMOD_PROJECTILE_DAMAGE) == 100.0f) {
+					Attack(false, 20, 1, 0, 1.0f);
+				}
+				else if (owner->PowerUpModifier(PMOD_MULTISHOTS) == 4.0f) {
+					Attack(false, 1 * owner->PowerUpModifier(PMOD_MULTISHOTS), 1 * owner->PowerUpModifier(PMOD_SPREAD), 0, 1.0f);
+				}
+				else if (owner->PowerUpModifier(PMOD_VAMPIRE) == 1.0f) {
+					Attack(false, 1, 1, 0, 1.0f);
+					if (owner->health < 100) {
+						owner->health += 10;
+					}
+				}
+				else {
+					Attack(false, 1, 1, 0, 1.0f);
+				}
+				PlayEffect ( "fx_normalflash", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "fire", parms.blendFrames );
 			}
 			fireHeldTime = 0;

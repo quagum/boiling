@@ -4309,6 +4309,14 @@ float idPlayer::PowerUpModifier( int type ) {
 			case PMOD_FIRERATE:
 				mod *= 0.7f;
 				break;
+
+			case PMOD_MULTISHOTS:
+				mod *= 4.0f;
+				break;
+
+			case PMOD_SPREAD:
+				mod *= 6.0f;
+				break;
 		}
 	}
 
@@ -4319,17 +4327,24 @@ float idPlayer::PowerUpModifier( int type ) {
 				mod *= 0.7f;
 				break;
 			}
+			case PMOD_VAMPIRE: {
+				mod *= 1.0f;
+			}
 		}
 	}
 
 	if( PowerUpActive( POWERUP_DOUBLER ) ) {
 		switch( type ) {
 			case PMOD_PROJECTILE_DAMAGE: {
-				mod *= 2.0f;
+				mod *= 100.0f;
 				break;
 			}
 			case PMOD_MELEE_DAMAGE: {
-				mod *= 2.0f;
+				mod *= 100.0f;
+				break;
+			}
+			case PMOD_PROJECTILE_DEATHPUSH: {
+				mod *= 100.0f;
 				break;
 			}
 		}
@@ -4524,6 +4539,24 @@ void idPlayer::StartPowerUpEffect( int powerup ) {
 			arenaEffect = PlayEffect( "fx_doubler", renderEntity.origin, renderEntity.axis, true );
 			break;
 		}
+
+		case POWERUP_VAMPIRE: {
+			powerUpOverlay = hasteOverlay;
+			hasteEffect = PlayEffect("fx_haste", GetPhysics()->GetOrigin(), GetPhysics()->GetAxis(), true);
+			break; 
+		}
+
+		case POWERUP_MULTISHOT: {
+			powerUpOverlay = hasteOverlay;
+			hasteEffect = PlayEffect("fx_haste", GetPhysics()->GetOrigin(), GetPhysics()->GetAxis(), true);
+			break; 		
+		}
+
+		case POWERUP_RAH: {
+			powerUpOverlay = hasteOverlay;
+			hasteEffect = PlayEffect("fx_haste", GetPhysics()->GetOrigin(), GetPhysics()->GetAxis(), true);
+			break; 		
+		}
 	}
 }
 
@@ -4538,7 +4571,9 @@ void idPlayer::StopPowerUpEffect( int powerup ) {
 		(inventory.powerups & ( 1 << POWERUP_QUADDAMAGE ) ) || 
 		(inventory.powerups & ( 1 << POWERUP_REGENERATION ) ) || 
 		(inventory.powerups & ( 1 << POWERUP_HASTE ) ) || 
-		(inventory.powerups & ( 1 << POWERUP_INVISIBILITY ) ) 
+		(inventory.powerups & ( 1 << POWERUP_VAMPIRE ) ) ||
+		(inventory.powerups & (1 << POWERUP_MULTISHOT)) ||
+		(inventory.powerups & (1 << POWERUP_RAH))
 		) )	{
 
 			powerUpOverlay = NULL;
@@ -4613,6 +4648,18 @@ void idPlayer::StopPowerUpEffect( int powerup ) {
 		case POWERUP_AMMOREGEN: {
 			teamAmmoRegenPending = false;
 			StopEffect( "fx_ammoregen" );
+			break;
+		}
+		case POWERUP_VAMPIRE: {
+			StopEffect("fx_haste");
+			break;
+		}
+		case POWERUP_MULTISHOT: {
+			StopEffect("fx_haste");
+			break;
+		}
+		case POWERUP_RAH: {
+			StopEffect("fx_haste");
 			break;
 		}
 	}
