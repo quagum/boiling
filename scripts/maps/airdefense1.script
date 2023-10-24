@@ -1866,23 +1866,28 @@ void createSpawner(float waveNumber)
 	float j = createSpawns(waveNumber);	// make nulls for spawn points
 
 	if (waveNumber == 1){
+		sys.setSpawnArg("delay", 0.5);
 		sys.setSpawnArg("def_spawn", "monster_strogg_marine");
 	}
 	else if (waveNumber == 2){
+		sys.setSpawnArg("delay", 0.3);
 		sys.setSpawnArg("def_spawn_1", "monster_strogg_marine_mgun");
 	}
 	else if (waveNumber == 3){
+		sys.setSpawnArg("delay", 0.3);
 		sys.setSpawnArg("def_spawn_2", "monster_strogg_marine_mgun");
 		sys.setSpawnArg("def_spawn_3", "monster_strogg_marine_mgun");
 		sys.setSpawnArg("def_spawn_4", "monster_strogg_marine_sgun");
 	}
 	else if (waveNumber == 4){
+		sys.setSpawnArg("delay", 0.3);
 		sys.setSpawnArg("def_spawn_1", "monster_grunt");
 		sys.setSpawnArg("def_spawn_2", "monster_grunt");
 		sys.setSpawnArg("def_spawn_3", "monster_berserker");
 		sys.setSpawnArg("def_spawn_4", "monster_berserker");
 	}
 	else if (waveNumber == 5){
+		sys.setSpawnArg("delay", 0.1);
 		sys.setSpawnArg("def_spawn_1", "monster_gunner");
 		sys.setSpawnArg("def_spawn_2", "monster_gunner");
 		sys.setSpawnArg("def_spawn_3", "monster_gunner");
@@ -1892,7 +1897,6 @@ void createSpawner(float waveNumber)
 	sys.waitFrame();
 
 	sys.setSpawnArg("max_active", 10);	//max # of spawns
-	sys.setSpawnArg("delay", 0.1);		//spawn delay
 	sys.setSpawnArg("auto_target", "1");
 	sys.setSpawnArg("face_enemy", "1");
 	sys.setSpawnArg("skipVisible", "0");
@@ -1908,8 +1912,25 @@ void createSpawner(float waveNumber)
 	sys.trigger(Spawner);
 }
 
-void killMonster( entity victim )
-{
+void throwLoots ( vector org, string lootClass, float cnt, float nodoubles ){
+    float i;
+    entity loots;
+    vector toss;
+    float dist = 128; //radius of loot drop
+
+    for( i = 0; i < cnt; i++ ) {
+        toss_x = dist - sys.random(2 * dist);
+        toss_y = dist - sys.random(2 * dist);
+        toss_z = dist;
+        sys.setSpawnArg( "origin", org );
+        sys.setSpawnArg( "nodrop", 1 );
+        loots = sys.spawn( lootClass );
+        sys.waitFrame(); 
+        loots.setLinearVelocity( toss );
+    }
+}
+
+void killMonster(entity victim){
 	float val = sys.random(1);
 	kills = kills + 1;
 	sys.println(kills);
@@ -1934,6 +1955,53 @@ void killMonster( entity victim )
 			sys.println("INFINITE!");
 			createSpawner(6);
 		}
+	}
+    vector victimOrigin, victimSize, victimDrop;
+	victimOrigin = victim.getWorldOrigin(); //where was enemy killed?
+    victimSize = victim.getSize(); //how tall was enemy?
+    victimDrop_z = victimDrop_z + victimSize_z * 0.5;
+
+	val = sys.random(1);
+
+	string enemyType = victim.getKey( "classname" );
+	if ( enemyType == "monster_strogg_marine" ){
+		if ( val > 0.7 ) throwLoots( victimOrigin, "weaponmod_blaster_penetration", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weaponmod_blaster_penetration", 1, 0);
+		else if ( val > 0.4 ) throwLoots( victimOrigin, "weaponmod_blaster_RAH", 1, 0);
+	} 
+	else if ( enemyType == "monster_strogg_marine_mgun" ){
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_machinegun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_machinegun", 1, 0);
+		else if ( val > 0.4 ) throwLoots( victimOrigin, "weaponmod_machinegun_firerate", 1, 0);
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_machinegun_penetration", 1, 0);
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "weaponmod_machinegun_ammo", 1, 0);
+		else if ( val > 0.15 ) throwLoots( victimOrigin, "weaponmod_machinegun_RAH", 1, 0);
+	} 
+	else if ( enemyType == "monster_strogg_marine_sgun" )  {
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_nailgun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_nailgun", 1, 0 );
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_nailgun_firerate", 1, 0 );
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "weaponmod_nailgun_RAH", 1, 0 );
+	} 
+	else if ( enemyType == "monster_grunt" ) {
+		if ( val > 0.5 ) throwLoots( victimOrigin, "ammo_railgun_mp", 1, 0 );
+		else if ( val > 0.1 ) throwLoots( victimOrigin, "weapon_railgun", 1, 0 );
+	} 
+	else if ( enemyType == "monster_berserker" ) {
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_shotgun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weaponmod_shotgun_ammo", 1, 0);
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weapon_shotgun", 1, 0);
+	} 
+	else if ( enemyType == "monster_gunner" ) {
+		if ( val > 0.7 ) throwLoots( victimOrigin, "ammo_nailgun_mp", 1, 0 );
+		else if ( val > 0.5 ) throwLoots( victimOrigin, "weapon_nailgun", 1, 0 );
+		else if ( val > 0.3 ) throwLoots( victimOrigin, "weaponmod_nailgun_firerate", 1, 0 );
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "weaponmod_nailgun_RAH", 1, 0 );
+	} 
+	else if ( enemyType == "monster_network_guardian" ) {
+		if ( val > 0.5 ) throwLoots( victimOrigin, "ammo_rocketlauncher_mp", 2, 0 );
+		else if ( val > 0.2 ) throwLoots( victimOrigin, "item_armor_large_mp", 1, 1 );
+		else throwLoots( victimOrigin, "item_health_mega", 1, 1 );
 	}
 }
 

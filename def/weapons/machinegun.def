@@ -268,7 +268,7 @@ entityDef weaponmod_machinegun_ammo
 	"inv_icon"					"gfx/guis/hud/icons/item_machinegun.tga"
 	"inv_name"					"#str_107435"
 
-	"model"						"models/items/armor/ammo_box_machinegun.lwo"
+	"model"						"models/items/armor/shard.lwo"
 }
 
 entityDef wpmod_machinegun_firerate
