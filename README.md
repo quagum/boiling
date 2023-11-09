@@ -27,14 +27,14 @@ A README.md file for your project / repo X
 - monster retexture with green head and sometimes dark grey bodies to mimic solder helmet
 - monsters drop loot on death
   
-2. money earned and buy menu between rounds | NOT DONE
+2. money earned and buy menu between rounds | WIP
 
 3. replace the weapons with COD weapons
 - weapon clip size and shooting rate modified
 - weapon texture darkened to dark gray
 - weapons include: blaster, machinegun, nailgun, railgun, and rocketlauncher 
 
-4. purchasable perks/upgrades | NOT DONE
+4. purchasable perks/upgrades | WIP
 
 5. upgrades for weapons
 - three weapon mods that can be picked up
